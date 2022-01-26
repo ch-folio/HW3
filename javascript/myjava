@@ -1,0 +1,79 @@
+let movieArray = [];
+let movieObject1 = {
+    title: "Matilda",
+    rating: 5,
+    year: 1996
+}
+let movieObject2 = {
+    title: "It Takes Two",
+    rating: 4,
+    year: 1995
+}
+let movieObject3 = {
+    title: "Harriet the Spy",
+    rating: 2,
+    year: 1996
+}
+movieArray.push(movieObject1);
+movieArray.push(movieObject2);
+movieArray.push(movieObject3);
+
+document.addEventListener("DOMContentLoaded", function (event) {
+
+    document.getElementById("addMovie").addEventListener("click", function () {
+        let movieObject = {
+            title:document.getElementById("movieTitle").value,
+            rating:document.getElementById("rating").value,
+            year:document.getElementById("year").value
+        }
+
+        if (isValid(movieObject)) {
+            movieArray.push(movieObject);
+
+            document.getElementById("movieTitle").value = "";
+            document.getElementById("rating").value = "";
+            document.getElementById("year").value = "";
+        }
+        else {
+            alert("Please enter valid fields");
+        }
+    });
+
+    //document.getElementById("showMovies").addEventListener("click", printMovieList);
+})
+
+
+function isValid(aMovie) {
+    if ( ( (aMovie.title == null) || (aMovie.title.length == 0)  )
+    || (aMovie.rating.length == 0) || (aMovie.rating.length > 5)  
+    || (aMovie.year.length == 0) || (aMovie.year.length > 4)) {
+        return false
+    }
+    else {
+        return true;
+    }
+}
+function printMovieList() {
+    document.getElementById('myul').innerHTML = "";
+
+    movieArray.sort(compareRating);
+
+    for (let i = 0; i < movieArray.length; i++) {
+        let li = document.createElement('li');
+
+        li.innerHTML = "Movie: " + movieArray[i].title + ", Year: " + movieArray[i].year + ", Rating: " + movieArray[i].rating;
+        document.getElementById('myul').appendChild(li);
+            };
+
+            function compareRating(a,b)
+            {
+                if ( a.rating < b.rating){
+                    return -1;
+                }
+                if ( a.rating === b.rating){
+                    return 0;
+                }
+                return 1;
+            }
+
+}

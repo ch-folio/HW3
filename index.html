@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MovieList</title>
+    <script src="C:\Users\chelh\Documents\Prog209\HW3\javascript\myjava"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <form id="myForm" onsubmit = "return false">
+    <fieldset>
+      <legend> Enter A Movie</legend>
+      <br />
+      <label for="movieTitle">Movie Title</label>
+      <input type="text" id="movieTitle">
+      &nbsp;
+      <label for="year">Year</label>
+      <input type="text" id="year">
+
+      &nbsp;
+      <label for="rating">Rating</label>
+      <select name="rating" id="rating">
+        <option disabled selected value>-- select a rating --</option>
+        <option value="1">★</option>
+        <option value="2">★★</option>
+        <option value="3">★★★</option>
+        <option value="4">★★★★</option>
+        <option value="5">★★★★★</option>
+        </select>
+        <br />
+        <br />
+        <button type="button" id="addMovie" class="btn btn-primary"  >Add Movie</button>
+     </form>
+    </fieldset>
+    <br />
+
+    <fieldset id = "list">
+      <legend> My Movie Ratings</legend>
+
+      <button type="button" id="showMovies" class ="btn btn-success" onclick="printMovieList()">Show Movies</button>
+      <div id ="listed">
+        <ul id="myul"></ul>
+      </div>
+
+      <div id="table" class="table"></div>
+      </fieldset>
+
+    </div>
+    
+</body>
+</html>
